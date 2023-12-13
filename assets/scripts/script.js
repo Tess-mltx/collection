@@ -1,7 +1,7 @@
 let mangas = [{
     name : "Great Teacher Onizuka",
-    editorFr : "Kazé",
-    yearFr : "2004",
+    editor : "Kazé",
+    year : "2004",
     categories : ["comedy", "drama"],
     synopsis : "Un jeune enseignant de lycée, ancien voyou, se retrouve responsable d'une classe particulièrement difficile dont les élèves ne respectent plus aucun professeur.",
     thumbnailSrc : "",
@@ -55,25 +55,25 @@ let mangas = [{
     synopsis : "Dans la ville de Tokyo, des créatures nommées goules sont apparues et se nourrissent de chair humaine pour survivre. Un jour, Ken Kaneki, jeune étudiant, se fait attaquer par l'une d'entre elles et subit une grave blessure.",
     thumbnailSrc : "",
     },
-    {name : "",
-    editor : "",
-    year : "",
-    categories : [""],
-    synopsis : "",
-    thumbnailSrc : "",
-    },
-    {name : "",
-    editor : "",
-    year : "",
-    categories : [""],
-    synopsis : "",
-    thumbnailSrc : "",
-    },
+    // {name : "",
+    // editor : "",
+    // year : "",
+    // categories : [""],
+    // synopsis : "",
+    // thumbnailSrc : "",
+    // },
+    // {name : "",
+    // editor : "",
+    // year : "",
+    // categories : [""],
+    // synopsis : "",
+    // thumbnailSrc : "",
+    // },
 ];
         
 function GenerateCards(){
     mangas.forEach(element => {
-        let section = document.getElementsByClassName("collectionSection");
+        let section = document.getElementById("collectionSection");
         let article = document.createElement("article");
         let thumbnail = document.createElement("img");
         let ulCategories = document.createElement("ul");
@@ -91,16 +91,20 @@ function GenerateCards(){
         synopsis.classList.add("card-synopsis");
 
         section.appendChild(article);
-        article.appendChild(thumbnail, ulCategories, name, edition, synopsis);
+            article.appendChild(thumbnail);
+            thumbnail.setAttribute("src", element.thumbnailSrc);
+            article.appendChild(ulCategories);
+                // ulCategories.appendChild(liCategorie);
 
-        thumbnail.src(element.thumbnailSrc);
+                    // liCategorie.appendChild(document.createTextNode(element.categories)); // <===== for each ???
 
-        ulCategories.appendChild(liCategorie);
-        liCategorie.appendChild(document.createTextNode(element.categories)); // <===== for each ???
-
-        name.appendChild(document.createTextNode(element.name));
-        edition.appendChild(document.createTextNode(element.editor + ", " + element.year));
-        synopsis.appendChild(document.createTextNode(element.synopsis));
+            article.appendChild(name);
+                name.appendChild(document.createTextNode(element.name));
+            article.appendChild(edition);
+                edition.appendChild(document.createTextNode(element.editor + ", " + element.year));
+            article.appendChild(synopsis);
+                synopsis.appendChild(document.createTextNode(element.synopsis));
 
     })
 }
+GenerateCards();
