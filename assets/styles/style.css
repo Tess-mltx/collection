@@ -45,10 +45,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.card {
-  background-color: #004d63;
-  color: #bce9ff; }
-
 .card-textContent-categoriesList-item {
   background-color: #6f2c6c;
   color: #ffd7f6; }
@@ -73,6 +69,9 @@ body {
     margin-inline-end: 10px; }
   .introduce-textContent {
     margin-inline: 20px; }
+    .introduce-textContent-title {
+      font-size: 24px;
+      margin-bottom: 20px; }
 
 #collectionSection {
   display: flex;
@@ -82,9 +81,11 @@ body {
   gap: 30px; }
 
 .card {
+  background-color: #004d63;
+  color: #bce9ff;
   width: 30%;
   min-width: 300px;
-  margin: auto;
+  margin-bottom: auto;
   margin-top: 0;
   display: block;
   border-radius: 20px; }
@@ -93,26 +94,24 @@ body {
     aspect-ratio: 3/2; }
   .card-textContent {
     padding: 5%; }
-    .card-textContent-categoriesList {
-      display: flex;
-      flex-wrap: wrap; }
-      .card-textContent-categoriesList-item {
-        margin: 2px 4px;
-        padding: 4px 8px;
-        border-radius: 10px;
-        place-items: auto stretch;
-        font-size: 12px; }
-        .card-textContent-categoriesList-item:not(:last-child) {
-          margin: 2px 4px 0px 2px; }
-    .card-textContent-titleGroup {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between; }
-      .card-textContent-titleGroup-title {
-        font-size: 22px;
-        margin: 5px 0; }
-      .card-textContent-titleGroup-editionInfos {
-        font-size: 12px; }
+  .card-textContent-categoriesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px; }
+    .card-textContent-categoriesList-item {
+      padding: 4px 8px;
+      border-radius: 10px;
+      place-items: auto stretch;
+      font-size: 12px; }
+  .card-titleGroup {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between; }
+    .card-titleGroup-title {
+      font-size: 22px;
+      margin: 5px 0; }
+    .card-titleGroup-editionInfos {
+      font-size: 12px; }
 
 /*# sourceMappingURL=style.css.map */

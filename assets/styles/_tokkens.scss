@@ -1,3 +1,6 @@
+$md-screen: "450px";
+$lg-screen: "1400px";
+
 $primary-dark: #64d3ff;
 $on-primary-dark: #003546;
 $primary-container-dark: #004d63;
@@ -12,6 +15,7 @@ $on-background-dark: #e1e2e4;
 $font-size-small: 12px;
 $font-size-medium: 16px;
 $font-size-large: 22px;
+$font-size-extraLarge: 24px;
 
 %color-match-primary{
     background-color: $primary-dark;

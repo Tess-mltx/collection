@@ -22,7 +22,11 @@ body {
     };
     &-textContent {
         margin-inline: 20px;
-    }
+        &-title {
+            font-size: $font-size-extraLarge;
+            margin-bottom: 20px;
+        };
+    };
 }
 
 
@@ -35,32 +39,17 @@ body {
 }
 
 .card {
-    @extend %color-match-primary-container; 
-    width: 30%;
-    min-width: 300px;
-    margin: auto;
-    margin-top: 0;
-    display: block;
-    border-radius: 20px;
-    &-thumbnail {
-        max-width: 100%;
-        aspect-ratio: 3/2;
-    };
-    &-textContent {
-        padding: 5%;
-        &-categoriesList {
+    @include styleCard($primary-container-dark, $on-primary-container-dark);
+        &-textContent-categoriesList {
             display: flex;
             flex-wrap: wrap;
+            gap: 4px;
             &-item {
                 @extend %color-match-secondary-container;
-                margin: 2px 4px;
                 padding: 4px 8px;
                 border-radius: 10px;
                 place-items: auto stretch;
                 font-size: $font-size-small;
-                &:not(:last-child){
-                    margin: 2px 4px 0px 2px;
-                }
             };
         };
         &-titleGroup {
@@ -77,4 +66,4 @@ body {
             };
         };
     };
-}
+
