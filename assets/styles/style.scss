@@ -2,3 +2,79 @@
 @import 'tokkens';
 @import 'mixins';
 
+body {
+    @extend %color-match-background;
+    width: 90%;
+    margin: auto;
+}
+
+
+.introduce {
+    display: flex;
+    align-items: flex-start;
+    margin: 40px 0 40px 0;
+    &-profilePicture {
+        width: 10%;
+        min-width: 70px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        margin-inline-end: 10px;
+    };
+    &-textContent {
+        margin-inline: 20px;
+    }
+}
+
+
+#collectionSection {
+    display: flex;
+    flex-direction: row; // <=== mobile = collumn
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap : 30px;
+}
+
+.card {
+    @extend %color-match-primary-container; 
+    width: 30%;
+    min-width: 300px;
+    margin: auto;
+    margin-top: 0;
+    display: block;
+    border-radius: 20px;
+    &-thumbnail {
+        max-width: 100%;
+        aspect-ratio: 3/2;
+    };
+    &-textContent {
+        padding: 5%;
+        &-categoriesList {
+            display: flex;
+            flex-wrap: wrap;
+            &-item {
+                @extend %color-match-secondary-container;
+                margin: 2px 4px;
+                padding: 4px 8px;
+                border-radius: 10px;
+                place-items: auto stretch;
+                font-size: $font-size-small;
+                &:not(:last-child){
+                    margin: 2px 4px 0px 2px;
+                }
+            };
+        };
+        &-titleGroup {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            &-title {
+                font-size: $font-size-large;
+                margin: 5px 0;
+            };
+            &-editionInfos {
+                font-size: $font-size-small;
+            };
+        };
+    };
+}

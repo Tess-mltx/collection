@@ -1,0 +1,118 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.card {
+  background-color: #004d63;
+  color: #bce9ff; }
+
+.card-textContent-categoriesList-item {
+  background-color: #6f2c6c;
+  color: #ffd7f6; }
+
+body {
+  background-color: #191c1e;
+  color: #e1e2e4; }
+
+body {
+  width: 90%;
+  margin: auto; }
+
+.introduce {
+  display: flex;
+  align-items: flex-start;
+  margin: 40px 0 40px 0; }
+  .introduce-profilePicture {
+    width: 10%;
+    min-width: 70px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-inline-end: 10px; }
+  .introduce-textContent {
+    margin-inline: 20px; }
+
+#collectionSection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px; }
+
+.card {
+  width: 30%;
+  min-width: 300px;
+  margin: auto;
+  margin-top: 0;
+  display: block;
+  border-radius: 20px; }
+  .card-thumbnail {
+    max-width: 100%;
+    aspect-ratio: 3/2; }
+  .card-textContent {
+    padding: 5%; }
+    .card-textContent-categoriesList {
+      display: flex;
+      flex-wrap: wrap; }
+      .card-textContent-categoriesList-item {
+        margin: 2px 4px;
+        padding: 4px 8px;
+        border-radius: 10px;
+        place-items: auto stretch;
+        font-size: 12px; }
+        .card-textContent-categoriesList-item:not(:last-child) {
+          margin: 2px 4px 0px 2px; }
+    .card-textContent-titleGroup {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between; }
+      .card-textContent-titleGroup-title {
+        font-size: 22px;
+        margin: 5px 0; }
+      .card-textContent-titleGroup-editionInfos {
+        font-size: 12px; }
+
+/*# sourceMappingURL=style.css.map */
