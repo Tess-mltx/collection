@@ -16,14 +16,14 @@ let mangas = [{
     {name : "Elfen lied (VOSTFR)",
     editor : "Kazé",
     year : "2007",
-    categories : ["horreur", "fantastique", "action", "drame"],
+    categories : ["horreur/gore", "fantasy", "action", "drame"],
     synopsis : "Lucy, une diclonius, arrive à s'échapper du laboratoire en massacrant les gardes avant d'être touchée à la tête par un sniper, ce qui la précipite dans l'océan. Le lendemain, Kota découvre une jeune fille ayant perdu la mémoire, il le surnome Nyu car s'est le seule mot qu'elle sait dire.",
     thumbnailSrc : "assets/images/elfen-lied.webp",
     },
     {name : "Assasination classroom",
     editor : "Anime Digital Network",
     year : "2015",
-    categories : ["action", "comédie", "drame"],
+    categories : ["action", "comedy", "drame"],
     synopsis : "Koro Sensei devient enseignant de la classe 3-E de l'école de Kunugigaoka. Après avoir détruit la Lune et promis de faire exploser la Terre, ses élèves tentent de l'arrêter. Unis par un lien mystérieux, ils ont un an pour achever leur mission.",
     thumbnailSrc : "assets/images/assassination-classroom.webp",
     },
@@ -37,7 +37,7 @@ let mangas = [{
     {name : "Mai-Hime (VOSTFR)",
     editor : "Beez Entertainment",
     year : "2004",
-    categories : ["action", "fantasy", "comédie romantique", "magical girl"],
+    categories : ["action", "fantasy", "comedy", "magical girl"],
     synopsis : "Tokiha Mai et son jeune frère malade Takumi viennent d'être transférés à la prestigieuse école privée de Fuuka Gakuen. Pendant leur traversée en ferry pour se rendre à l'école, celui-ci devient un véritable champ de bataille entre 2 jeunes filles possédant des pouvoirs surnaturels.",
     thumbnailSrc : "assets/images/mai-hime.webp",
     },
@@ -51,73 +51,104 @@ let mangas = [{
     {name : "Tokyo Ghoul",
     editor : "Wakanim",
     year : "2014",
-    categories : ["Action", "fantastique", "drame", "psychologie", "horreur"],
+    categories : ["action", "fantasy", "drame", "psychology", "horreur/gore"],
     synopsis : "Dans la ville de Tokyo, des créatures nommées goules sont apparues et se nourrissent de chair humaine pour survivre. Un jour, Ken Kaneki, jeune étudiant, se fait attaquer par l'une d'entre elles et subit une grave blessure.",
     thumbnailSrc : "assets/images/tokyo-ghoul.webp",
     },
     {name : "Bastard!!",
     editor : "Netflix",
     year : "2022",
-    categories : ["fantasy", "action", "aventure", "comédie", "ecchi"],
+    categories : ["fantasy", "action", "aventure", "comedy", "ecchi"],
     synopsis : "Attaquée par une grande armée composée de magiciens, de Trolls et d'Orcs, la forteresse de MetaLicana est au bord de la destruction. Il ne leur reste qu'une seule solution : réveiller Dark Schneider, magicien légendaire et invincible, prisonnier dans le corps d'un enfant. Solution qui apportera pas mal de soucis puisque Dark Schneider était le chef de l'armée adverse !",
     thumbnailSrc : "assets/images/bastard!!.webp",
     },
     {name : "Yu yu hakusho",
     editor : "Dybex",
     year : "1992",
-    categories : ["action", "aventure", "comédie", "drame", "fantasy", "horreur/épouvante", "mystère", "nekketsu", "surnaturel"],
+    categories : ["action", "aventure", "comedy", "drame", "fantasy", "horreur/gore", "mystery", "nekketsu", "surnaturel"],
     synopsis : "Yusuke Urameshi est un jeune vaurien de 14 ans. Il va pourtant sauver la vie d'un petit garçon et se faire écraser... Il y laisse sa vie. Pourtant, sa mort, imprévue, pose problème à Enma Jr, le fils du Juge des Enfers. Il décide alors de lui faire passer un test, pour juger de ses qualités. S'il réussit ce test, il pourra ressusciter et deviendra un détective du monde des esprits, afin de combattre avec son guide spirituel Botan, tous les démons trouvés sur Terre pour y faire du mal.",
     thumbnailSrc : "assets/images/yu-yu-hakusho.webp",
     },
 ];
         
-function GenerateCards(){
-    mangas.forEach(element => {
-        let section = document.getElementById("collectionSection"); // <=== plusieur noms de variables peuvent être améliorés.
-        let article = document.createElement("article");
-        let thumbnail = document.createElement("img");
-        let texte = document.createElement("section")
-        let ulCategories = document.createElement("ul");
-        let liCategorie;
-        let hgroup = document.createElement("hgroup")
-        let name = document.createElement("h2");
-        let edition = document.createElement("p");
-        let synopsis = document.createElement("p");
 
-        article.classList.add("card");
-        thumbnail.classList.add("card-thumbnail");
-        texte.classList.add("card-textContent")
-        ulCategories.classList.add("card-textContent-categoriesList"); 
-        hgroup.classList.add("card-textContent-titleGroup")     
-        name.classList.add("card-textContent-titleGroup-title");
-        edition.classList.add("card-textContent-titleGroup-editionInfos");
-        synopsis.classList.add("card-textContent-synopsis");
+let sectionCard = document.getElementById("collectionSection");
+let allBtn = document.getElementById("all");
+let fantasyBtn = document.getElementById("fantasy");
+let scienceFictionBtn = document.getElementById("science-fiction");
+let horreurGoreBtn = document.getElementById("horreur/gore");
+let comedyBtn = document.getElementById("comedy");
+let psychologyBtn = document.getElementById("psychology");
 
-        section.appendChild(article);
-            article.appendChild(thumbnail);
-            thumbnail.setAttribute("src", element.thumbnailSrc);
-            article.appendChild(texte);
-                texte.appendChild(ulCategories);
+function GenerateCard(manga) { // <==== le foreach element manga a du être sorit pour éutiliser la fct
+    let article = document.createElement("article");
+    let thumbnail = document.createElement("img");
+    let texte = document.createElement("section");
+    let ulCategories = document.createElement("ul");
+    let liCategorie;
+    let hgroup = document.createElement("hgroup");
+    let name = document.createElement("h2");
+    let edition = document.createElement("p");
+    let synopsis = document.createElement("p");
 
-                        element.categories.forEach(item => {
-                            liCategorie = document.createElement("li");
-                            liCategorie.classList.add("card-textContent-categoriesList-item");
-                            liCategorie.setAttribute('data-categori', item)
-                            liCategorie.appendChild(document.createTextNode(item));
-                            ulCategories.appendChild(liCategorie);
-                        })
-                texte.appendChild(hgroup);
-                    hgroup.appendChild(name);
-                        name.appendChild(document.createTextNode(element.name));
-                    hgroup.appendChild(edition);
-                        edition.appendChild(document.createTextNode(element.editor + ", " + element.year));
-                texte.appendChild(synopsis);
-                    synopsis.appendChild(document.createTextNode(element.synopsis));
+    article.classList.add("card");
+    thumbnail.classList.add("card-thumbnail");
+    texte.classList.add("card-textContent");
+    ulCategories.classList.add("card-textContent-categoriesList");
+    hgroup.classList.add("card-textContent-titleGroup");
+    name.classList.add("card-textContent-titleGroup-title");
+    edition.classList.add("card-textContent-titleGroup-editionInfos");
+    synopsis.classList.add("card-textContent-synopsis");
 
-    })
+    article.appendChild(thumbnail);
+    thumbnail.setAttribute("src", manga.thumbnailSrc);
+    article.appendChild(texte);
+    texte.appendChild(ulCategories);
+
+    manga.categories.forEach((item) => {
+        liCategorie = document.createElement("li");
+        liCategorie.classList.add("card-textContent-categoriesList-item");
+        liCategorie.setAttribute("data-categori", item);
+        liCategorie.appendChild(document.createTextNode(item));
+        ulCategories.appendChild(liCategorie);
+    });
+    texte.appendChild(hgroup);
+    hgroup.appendChild(name);
+    name.appendChild(document.createTextNode(manga.name));
+    hgroup.appendChild(edition);
+    edition.appendChild(document.createTextNode(manga.editor + ", " + manga.year));
+    texte.appendChild(synopsis);
+    synopsis.appendChild(document.createTextNode(manga.synopsis));
+
+    return article;
 }
-GenerateCards();
 
-function selectCategory(){
-    let categoryItem
+function showAllCards() {
+    sectionCard.innerHTML = "";
+
+    mangas.forEach((element) => {
+        let card = GenerateCard(element);
+        sectionCard.appendChild(card); // Ajoutez la carte directement à la sectionCard
+    });
 }
+
+function showCardsByCategory(category) {
+    sectionCard.innerHTML = "";
+
+    let filteredMangas = mangas.filter((manga) => manga.categories.includes(category));
+
+    filteredMangas.forEach((manga) => {
+        let card = GenerateCard(manga);
+        sectionCard.appendChild(card); // Ajoutez la carte directement à la sectionCard
+    });
+}
+
+
+allBtn.addEventListener("click", showAllCards);
+fantasyBtn.addEventListener("click", () => showCardsByCategory("fantasy"));
+scienceFictionBtn.addEventListener("click", () => showCardsByCategory("science-fiction"));
+horreurGoreBtn.addEventListener("click", () => showCardsByCategory("horreur/gore"));
+comedyBtn.addEventListener("click", () => showCardsByCategory("comedy"));
+psychologyBtn.addEventListener("click", () => showCardsByCategory("psychology"));
+
+document.addEventListener("DOMContentLoaded", showAllCards);
