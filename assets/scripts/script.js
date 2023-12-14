@@ -23,7 +23,7 @@ let mangas = [{
     {name : "Assasination classroom",
     editor : "Anime Digital Network",
     year : "2015",
-    categories : ["Action", "comédie", "drame"],
+    categories : ["action", "comédie", "drame"],
     synopsis : "Koro Sensei devient enseignant de la classe 3-E de l'école de Kunugigaoka. Après avoir détruit la Lune et promis de faire exploser la Terre, ses élèves tentent de l'arrêter. Unis par un lien mystérieux, ils ont un an pour achever leur mission.",
     thumbnailSrc : "assets/images/assassination-classroom.webp",
     },
@@ -102,6 +102,7 @@ function GenerateCards(){
                         element.categories.forEach(item => {
                             liCategorie = document.createElement("li");
                             liCategorie.classList.add("card-textContent-categoriesList-item");
+                            liCategorie.setAttribute('data-categori', item)
                             liCategorie.appendChild(document.createTextNode(item));
                             ulCategories.appendChild(liCategorie);
                         })
@@ -116,3 +117,7 @@ function GenerateCards(){
     })
 }
 GenerateCards();
+
+function selectCategory(){
+    let categoryItem
+}

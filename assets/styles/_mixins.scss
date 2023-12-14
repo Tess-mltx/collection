@@ -7,8 +7,8 @@
 @mixin styleCard($bgColor, $fontColor){
     background-color: $bgColor;
     color: $fontColor; 
-    width : 30%;
-    min-width : 300px;
+    width : 22%;
+    min-width : 250px;
     margin-bottom : auto;
     margin-top : 0;
     display : block;
@@ -20,4 +20,18 @@
     &-textContent {
         padding: 5%;
     };
+}
+
+@mixin styleCetegoriesList($bgColor, $textColor){
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    &-item {
+        padding: 4px 8px;
+        border-radius: 10px;
+        place-items: auto stretch;
+        font-size: $font-size-small;
+        background-color: $secondary-container-dark;
+        color: $on-secondary-container-dark;
+            };
 }

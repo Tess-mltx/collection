@@ -4,15 +4,22 @@
 
 body {
     @extend %color-match-background;
-    width: 90%;
+    width: 95%;
     margin: auto;
+    font-family: $font-style-type;
 }
+
 
 
 .introduce {
     display: flex;
     align-items: flex-start;
     margin: 40px 0 40px 0;
+    @include media-maxwidth($md-screen){
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
     &-profilePicture {
         width: 10%;
         min-width: 70px;
@@ -34,29 +41,33 @@ body {
     display: flex;
     flex-direction: row; // <=== mobile = collumn
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     gap : 30px;
+    margin-bottom: 40px;
+    @include media-maxwidth($md-screen){
+        flex-direction: column;
+    }
 }
 
 .card {
     @include styleCard($primary-container-dark, $on-primary-container-dark);
-        &-textContent-categoriesList {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px;
-            &-item {
-                @extend %color-match-secondary-container;
-                padding: 4px 8px;
-                border-radius: 10px;
-                place-items: auto stretch;
-                font-size: $font-size-small;
-            };
+    transition: all .4s ease-in-out;
+        &:hover{
+            transform: scale(1.1);
         };
-        &-titleGroup {
+        @include media-maxwidth($md-screen){
+            width: 100%;
+            min-width: 0;
+        }
+        &-textContent-categoriesList {
+            @include styleCetegoriesList($secondary-container-dark, $on-secondary-container-dark );
+        };
+        &-textContent-titleGroup {
             display: flex;
             flex-wrap: wrap;
             align-items: baseline;
             justify-content: space-between;
+            margin-block: 7px;
             &-title {
                 font-size: $font-size-large;
                 margin: 5px 0;
@@ -67,3 +78,22 @@ body {
         };
     };
 
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-block: 20px;
+    align-items: baseline;
+    @include media-maxwidth($md-screen){
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 100%;
+    }
+    &-quotes {
+        width: 30%;
+        padding: 10px;
+        color: $secondary-dark;
+        @include media-maxwidth($md-screen){
+            width: 100%;
+        }
+    }
+}
