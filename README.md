@@ -18,7 +18,7 @@ Pour utiliser l'application, suivez ces étapes :
 
 ### Captures d'écran
 ***
-[La collection v1](./assets/images/manga'sCollection.png)
+![La collection v1](./assets/images/manga'sCollection.png)
 
 ## Technologies
 ***
